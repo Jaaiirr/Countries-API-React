@@ -19,9 +19,42 @@ const Countries = () => {
   return (
     <>
       {countries.map((country) => {
-        const { name, capital, region, population, area } = country;
+        const {
+          numericCode,
+          flag,
+          name,
+          population,
+          capital,
+          region,
+          area,
+          nativeName,
+        } = country;
 
-        return <article key={name}>Country Info</article>;
+        return (
+          <article key={numericCode}>
+            <div>
+              <img src={flag} alt={name} />
+              <h3>
+                Nombre: <span>{name}</span>
+              </h3>
+              <h4>
+                Capital: <span>{capital}</span>
+              </h4>
+              <h4>
+                Idioma Nativo: <span>{nativeName}</span>{" "}
+              </h4>
+              <h4>
+                Poblacion: <span>{population} hab.</span>
+              </h4>
+              <h4>
+                Region: <span>{region}</span>{" "}
+              </h4>
+              <h4>
+                Area: <span>{area} km</span>
+              </h4>
+            </div>
+          </article>
+        );
       })}
     </>
   );
