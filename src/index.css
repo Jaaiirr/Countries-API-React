@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=IM+Fell+English&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@100;300;400;500&display=swap');
 
 * {
   margin: 0;
@@ -6,8 +6,109 @@
   box-sizing: border-box;
 }
 body {
-  font-family: "IM Fell English", sans-serif;
+  font-family: "Alegreya Sans SC", sans-serif;
+  /* padding: 20px; */
+  background-color: #2B2B2B;
+  color: whitesmoke;
+  font-weight: 100;
 }
 img {
   max-width: 100%;
+}
+/* Header */
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #423F3E;
+  padding: 15px 25px;
+}
+
+/* Search Country */
+.search{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px
+}
+.search .form{
+  width: 100%;
+}
+.search .form input {
+  background-color: #423F3E;
+  border:none;
+  outline: none;
+  padding: 10px;
+  border-radius: 10px;
+  color: whitesmoke;
+  font-family: inherit;
+  width: 100%;
+  margin: 0 0 40px;
+}
+.search .form input::placeholder {
+  color: whitesmoke;
+  text-align: center;
+}
+
+
+/* Countries */
+.gridLayout{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;  
+  padding: 20px;
+}
+.gridLayout .lighterCard{
+  background-color: #423F3E;
+  padding: 15px;
+  margin-top: -10px;
+  border-radius: 0 0 10px 10px;
+}
+.gridLayout article img {
+  border-radius: 10px 10px 0 0;
+  /* height: 200px;
+  width: 100%; */
+}
+.gridLayout .lighterCard h3{
+  padding-bottom: 25px;
+  text-align: center;
+}
+.gridLayout .lighterCard h4{
+  padding-bottom: 5px;
+  /* font-weight: 500; */
+}
+.gridLayout .lighterCard h4 span{
+font-weight: 500;
+}
+@media screen and (min-width: 640px) {
+  .gridLayout{
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .search .form {
+    width: 48%;
+    /* margin: auto; */
+  }
+}
+@media screen and (min-width: 768px) {
+ 
+  .gridLayout{
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .search .form {
+    width: 30%;
+    /* margin: auto; */
+  }
+}
+@media screen and (min-width: 992px) {
+    .header, .search, .gridLayout {
+      padding: 25px 80px;
+    }
+  .gridLayout{
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+  }
+  .search .form {
+    width: 22%;
+    /* margin: auto; */
+  }
 }
