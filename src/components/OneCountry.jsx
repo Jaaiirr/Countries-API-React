@@ -8,7 +8,8 @@ const OneCountry = () => {
   useEffect(() => {
     const fetchCountryInfo = async () => {
       const response =
-        await fetch(`https://restcountries.eu/rest/v2/name/${name}
+        await fetch(`https://restcountries.com/v2/name/${name}
+
         `);
       const country = await response.json();
       setCountry(country);
@@ -20,13 +21,13 @@ const OneCountry = () => {
   return (
     <>
       <Link to="/" className="send-btn btn-light">
-        <i className=" fas fa-arrow-left">Back Home</i>
+        <i>Back Home</i>
       </Link>
       <section className="one-country">
         {country.map((countryData) => {
           const {
             numericCode,
-            flag,
+            flags,
             name,
             capital,
             population,
@@ -41,7 +42,7 @@ const OneCountry = () => {
           return (
             <article key={numericCode}>
               <div className="flag">
-                <img src={flag} alt={name} />
+                <img src={flags[1]} alt={name} />
               </div>
               <div className="country-data">
                 <h2>{name}</h2>
