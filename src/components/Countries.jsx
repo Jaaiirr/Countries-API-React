@@ -1,12 +1,20 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams} from "react-router-dom";
 
  const urlAPI = "https://restcountries.com/v2/all";
+//  const urlAPI ="https://restcountries.com/v3/all";
 // const urlAPI = "https://api.countrylayer.com/v2/all?access_key=4500149231cff155e458ac43dfd13aa0";
 
 const Countries = () => {
   const [countries, setCountries] = useState([]);
+  const {name} = useParams();
 
+  const searchCountry = async () => {
+    const response = await fetch ('https://restcountries.com/v2/name/${name}')
+    const countries = await response.json();
+    setCountries(countries);
+  }
+  
   const fetchCountryAPI = async () => {
     const response = await fetch(urlAPI);
     const countries = await response.json();
@@ -17,10 +25,19 @@ const Countries = () => {
 
   useEffect(() => {
     fetchCountryAPI();
+    searchCountry();
   }, []);
 
   return (
-    <>
+    <div>
+
+        <section className="search">
+            <form  className="form">
+                <input type="text " name="search" id="search"
+                 placeholder="Search a Country" onChange = {(data) => searchCountry (data.target.value)}/>
+            </form>
+        </section>
+
       <section className="gridLayout">
         {
         countries.map((country) => {
@@ -60,7 +77,7 @@ const Countries = () => {
           );
         })}
       </section>
-    </>
+    </div>
   );
 };
 

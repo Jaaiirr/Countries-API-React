@@ -133,3 +133,42 @@ img {
   }
 }
 /* OneCountry */
+.one-country{
+  padding: 40px;
+ text-align: center;  
+}
+.one-country article{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.one-country .country-data h4 {
+  margin: 10px 0;
+}
+.country-data h4 span{
+  font-weight: 500;
+}
+  
+/* .flag{
+  height: 53%;
+} */
+
+.btn-light{
+  margin-bottom: 30px;
+  display: inline-block;
+}
+.fix{
+  align-items: center;
+}
+@media screen and (min-width: 992px) {
+  .one-country article .fix {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.one-country .country-data{
+padding: 50px;
+}
+}  

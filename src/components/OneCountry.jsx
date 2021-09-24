@@ -20,10 +20,14 @@ const OneCountry = () => {
   }, []);
   return (
     <>
+      
+
+      <section className="one-country">
+        
       <Link to="/" className="send-btn btn-light">
         <i>Back Home</i>
       </Link>
-      <section className="one-country">
+
         {country.map((countryData) => {
           const {
             numericCode,
@@ -33,14 +37,16 @@ const OneCountry = () => {
             population,
             area,
             region,
-            subregion,
+            continent,
             topLevelDomain,
             borders,
             languages,
+            currencies,
           } = countryData;
 
           return (
             <article key={numericCode}>
+              <div className="fix">
               <div className="flag">
                 <img src={flags[1]} alt={name} />
               </div>
@@ -50,16 +56,19 @@ const OneCountry = () => {
                   Capital: <span>{capital}</span>
                 </h4>
                 <h4>
-                  Population: <span>{population}</span>
+                  Population: <span>{population} hab.</span>
                 </h4>
                 <h4>
-                  Area: <span>{area}</span>
+                  Area: 
+                  <span>
+                    {area} km<sup>2</sup>
+                    </span>
                 </h4>
                 <h4>
                   Region: <span>{region}</span>
                 </h4>
                 <h4>
-                  Sub Region: <span>{subregion}</span>
+                  Continent: <span>{continent}</span>
                 </h4>
                 <h4>
                   Domain: <span>{topLevelDomain}</span>
@@ -67,10 +76,7 @@ const OneCountry = () => {
                 <h4>
                   Languages: <span>{languages[0].name}</span>
                 </h4>
-
-                <div className="border">
-                  <h4>Border:{borders}</h4>
-                </div>
+              </div>
               </div>
             </article>
           );
